@@ -22,6 +22,6 @@ module.exports = function validateLoginInput(data) {
 
   return {
     errors,
-    isValid: isEmpty(errors) // Return if the entered value is valid or not (see isEmpty() for more info)
+    isValid: isEmpty(errors) // Return if the entered value is valid or not (see isEmpty() for more info).
   };
 };
