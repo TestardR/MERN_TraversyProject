@@ -76,11 +76,11 @@ router.post(
 
     // Social
     profileFields.social = {};
-    if (req.body.youtube) profileFields.social.youtube = red.body.youtube;
-    if (req.body.twitter) profileFields.social.twitter = red.body.twitter;
-    if (req.body.facebook) profileFields.social.facebook = red.body.facebook;
-    if (req.body.linkedin) profileFields.social.linkedin = red.body.linkedin;
-    if (req.body.instagram) profileFields.social.instagram = red.body.instagram;
+    if (req.body.youtube) profileFields.social.youtube = req.body.youtube;
+    if (req.body.twitter) profileFields.social.twitter = req.body.twitter;
+    if (req.body.facebook) profileFields.social.facebook = req.body.facebook;
+    if (req.body.linkedin) profileFields.social.linkedin = req.body.linkedin;
+    if (req.body.instagram) profileFields.social.instagram = req.body.instagram;
 
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {

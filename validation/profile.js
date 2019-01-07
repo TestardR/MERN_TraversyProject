@@ -27,27 +27,27 @@ module.exports = function validateProfileInput(data) {
 
   if (!isEmpty(data.website)) {
     if (!Validator.isURL(data.website)) {
-      erros.website = 'Not a valid URL';
+      errors.website = 'Not a valid URL';
     }
   }
   if (!isEmpty(data.youtube)) {
     if (!Validator.isURL(data.youtube)) {
-      erros.youtube = 'Not a valid URL';
+      errors.youtube = 'Not a valid URL';
     }
   }
   if (!isEmpty(data.twitter)) {
     if (!Validator.isURL(data.twitter)) {
-      erros.twitter = 'Not a valid URL';
+      errors.twitter = 'Not a valid URL';
     }
   }
   if (!isEmpty(data.linkedin)) {
     if (!Validator.isURL(data.linkedin)) {
-      erros.linkedin = 'Not a valid URL';
+      errors.linkedin = 'Not a valid URL';
     }
   }
   if (!isEmpty(data.instagram)) {
     if (!Validator.isURL(data.instagram)) {
-      erros.instagram = 'Not a valid URL';
+      errors.instagram = 'Not a valid URL';
     }
   }
 
