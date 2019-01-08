@@ -81,7 +81,7 @@ router.delete(
           // Check for post owner
           if (post.user.toString() !== req.user.id) {
             return res
-              .status(401)
+              .status(400)
               .json({ noauthorized: 'User not authorized' });
           }
 
