@@ -236,7 +236,7 @@ router.post(
 // @route   POST api/profile/education/:exp_id
 // @desc    Delete experience from profile
 // @access  Private
-router.post(
+router.delete(
   '/experience/:exp_id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
@@ -244,9 +244,9 @@ router.post(
       .then(profile => {
         // Get remove index
         const removeIndex = profile.experience
-          .map(item => item.id)
-          .indexOf(req.params.exp_id);
-        // Splace out of array
+          .map(item => item.id) // we get an array of experiences by id
+          .indexOf(req.params.exp_id); // we get the correct experience within the array (exp_id)
+        // Splice out of array (profile.experience is the array)
         profile.experience.splice(removeIndex, 1);
         // Save
         profile.save().then(profile => res.json(profile));
