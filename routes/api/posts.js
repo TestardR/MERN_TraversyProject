@@ -23,7 +23,9 @@ router.get('/', (req, res) => {
   Post.find()
     .sort({ date: -1 }) // sort by date
     .then(posts => res.json(posts))
-    .catch(err => res.status(404));
+    .catch(err =>
+      res.status(404).json({ nostpostsfound: 'No posts found with this id' })
+    );
 });
 
 // @route   GET api/posts/:id
