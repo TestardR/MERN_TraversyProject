@@ -19,15 +19,23 @@ router.get('/test', (req, res) => {
 // @route   GET api/posts
 // @desc    Get post
 // @access  Public
-router.get(
-  '/',
-  (req,
-  res => {
-    Post.find()
-      .sort({ date: -1 }) // sort by date
-      .then(posts => res.json(posts));
-  })
-);
+router.get('/', (req, res) => {
+  Post.find()
+    .sort({ date: -1 }) // sort by date
+    .then(posts => res.json(posts))
+    .catch(err => res.status(404));
+});
+
+// @route   GET api/posts/:id
+// @desc    Get post by id
+// @access  Public
+router.get('/:id', (req, res) => {
+  Post.findById(req.params.id)
+    .then(post => res.json(post))
+    .catch(err =>
+      res.status(404).json({ nostpostfound: 'No post found with this id' })
+    );
+});
 
 // @route   POST api/posts
 // @desc    Create post
