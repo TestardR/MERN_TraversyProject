@@ -103,7 +103,6 @@ class Register extends Component {
                 <div className="form-group">
                   <input
                     type="password"
-                    className="form-control form-control-lg"
                     className={classnames('form-control form-control-lg', {
                       'is-invalid': errors.password2
                     })}
