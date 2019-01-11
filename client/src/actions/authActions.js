@@ -3,11 +3,11 @@ import { GET_ERRORS } from './types';
 
 // Register User
 
-export const registerUser = userData => dispatch => {
+export const registerUser = (userData, history) => dispatch => {
   // thanks to thunk
   axios
     .post('/api/users/register', userData)
-    .then(res => console.log(res.data))
+    .then(res => history.push('/login')) // redirect thansk to withRouter see Register component
     // .catch(err => console.log(err.response.data));
     .catch(err =>
       dispatch({
