@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/index';
 
@@ -9,7 +9,10 @@ const middleware = [thunk]; // recommended to handle async logic (AJAX requests)
 const store = createStore(
   rootReducer,
   initialState,
-  applyMiddleware(...middleware)
+  compose(
+    applyMiddleware(...middleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  ) // REDUX_DEV_TOOLS
 );
 
 export default store;
