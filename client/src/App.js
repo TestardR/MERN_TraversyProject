@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'; // mimic standard server (browser back and forth button)
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import store from './store';
 
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Landing from './components/layout/Landing';
-
-import './App.css';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 
-const store = createStore(() => [], {}, applyMiddleware());
+import './App.css';
 
 class App extends Component {
   render() {
