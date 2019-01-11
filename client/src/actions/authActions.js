@@ -4,6 +4,7 @@ import { GET_ERRORS } from './types';
 // Register User
 
 export const registerUser = userData => dispatch => {
+  // thanks to thunk
   axios
     .post('/api/users/register', userData)
     .then(res => console.log(res.data))
