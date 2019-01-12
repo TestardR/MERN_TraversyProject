@@ -42,7 +42,7 @@ class Navbar extends Component {
               alt={user.name}
               style={{ width: '25px', marginRight: '5px' }}
               title="You must have a Gratar connected to your email to display an image"
-            />
+            />{' '}
             Logout
           </a>
         </li>
