@@ -16,7 +16,7 @@ export default function(state = initialState, action) {
     case GET_PROFILE:
       return {
         ...state,
-        profile: action.payload,
+        profile: action.payload, // empy payload in case of error
         loading: false
       };
     default:
