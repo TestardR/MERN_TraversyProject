@@ -3,15 +3,16 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TextFieldGroup from '../common/TextFieldGroup';
-import TextAreaFieldGroup from '../common/TextAreFieldGroup';
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import InputGroup from '../common/InputGroup';
 import SelectListGroup from '../common/SelectListGroup';
-import {createProfile} from '../../actions/profileActions';
+import { createProfile } from '../../actions/profileActions';
 
 class CreateProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      displaySocialInputs: false,
       handle: '',
       company: '',
       website: '',
@@ -35,7 +36,7 @@ class CreateProfile extends Component {
     }
   }
 
-  onSubmit(e) {
+  onSubmit = e => {
     e.preventDefault();
 
     const profileData = {
@@ -55,11 +56,11 @@ class CreateProfile extends Component {
     };
 
     this.props.createProfile(profileData, this.props.history);
-  }
+  };
 
-  onChange(e) {
+  onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-  }
+  };
 
   render() {
     const { errors, displaySocialInputs } = this.state;
