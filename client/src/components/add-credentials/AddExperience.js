@@ -18,7 +18,7 @@ class AddExperience extends Component {
       current: false,
       descripton: '',
       errors: {},
-      disabeld: false
+      disabled: false
     };
 
     this.onChange = this.onChange.bind(this);
