@@ -48,7 +48,7 @@ export const deleteAccount = () => dispatch => {
       .delete('/api/profile')
       .then(res =>
         dispatch({
-          // user has to be logged in
+          // It is going to log the user out (see authReducer)
           type: SET_CURRENT_USER,
           payload: {}
         })
