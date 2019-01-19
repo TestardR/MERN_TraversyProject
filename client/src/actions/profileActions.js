@@ -104,7 +104,7 @@ export const deleteEducation = id => dispatch => {
     );
 };
 
-// Get all Profile
+// Get all Profiles
 export const getProfiles = () => dispatch => {
   dispatch(setProfileLoading());
   axios
