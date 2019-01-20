@@ -3,12 +3,20 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
-import { deletePost } from '../../actions/postActions';
+import { deletePost, addLike, removeLike } from '../../actions/postActions';
 
 class PostItem extends Component {
   onDeleteClick(id) {
     this.props.deletePost(id);
     // console.log(id);
+  }
+
+  onLikeClick(id) {
+    this.props.addLike(id);
+  }
+
+  onUnlikeClick(id) {
+    this.props.removeLike(id);
   }
 
   render() {
@@ -29,11 +37,19 @@ class PostItem extends Component {
           </div>
           <div className="col-md-10">
             <p className="lead">{post.text}</p>
-            <button type="button" className="btn btn-light mr-1">
+            <button
+              onClick={this.onLikeClick.bind(this, post._id)}
+              type="button"
+              className="btn btn-light mr-1"
+            >
               <i className="text-info fas fa-thumbs-up" />
               <span className="badge badge-light">{post.likes.length}</span>
             </button>
-            <button type="button" className="btn btn-light mr-1">
+            <button
+              onClick={this.onUnlikeClick.bind(this, post._id)}
+              type="button"
+              className="btn btn-light mr-1"
+            >
               <i className="text-secondary fas fa-thumbs-down" />
             </button>
             <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
@@ -58,7 +74,9 @@ class PostItem extends Component {
 PostItem.propTypes = {
   post: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
-  deletePost: PropTypes.func.isRequired
+  deletePost: PropTypes.func.isRequired,
+  addLike: PropTypes.func.isRequired,
+  removeLike: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -67,5 +85,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { deletePost }
+  { deletePost, addLike, removeLike }
 )(PostItem);
