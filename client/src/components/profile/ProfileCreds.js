@@ -29,7 +29,7 @@ class ProfileCreds extends Component {
         <p>
           {exp.description === '' ? null : (
             <span>
-              <strong>Location: </strong> {exp.description}
+              <strong>Description: </strong> {exp.description}
             </span>
           )}
         </p>
@@ -56,7 +56,7 @@ class ProfileCreds extends Component {
         <p>
           {edu.description === '' ? null : (
             <span>
-              <strong>Location: </strong> {edu.description}
+              <strong>Description: </strong> {edu.description}
             </span>
           )}
         </p>
