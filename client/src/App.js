@@ -25,6 +25,7 @@ import Profile from './components/profile/Profile';
 import NotFound from './components/not-found/NotFound';
 
 import './App.css';
+import Posts from './components/posts/Posts';
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -80,6 +81,7 @@ class App extends Component {
                 path="/add-education"
                 component={AddEducation}
               />
+              <PrivateRoute exact path="/feed" component={Posts} />
               <Route exact path="/not-found" component={NotFound} />
             </div>
             <Footer />
